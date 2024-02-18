@@ -110,7 +110,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response && response.outputs && response.outputs.length > 0) {
-          fetch('http://localhost:3000/imageUrl', {
+          fetch('https://mybackend-dfd1.onrender.com/imageUrl', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
