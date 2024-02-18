@@ -18,30 +18,32 @@ class Signin extends React.Component {
     this.setState({signInPassword: event.target.value})
   }
 
-  onSubmitSignIn = () => {
-  fetch('https://mybackend-dfd1.onrender.com/signin', {
-    method: 'post',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      email: this.state.signInEmail,
-      password: this.state.signInPassword
-    })
-  })
-  .then(response => {
+  onSubmitSignIn = async () => {
+  try {
+    const response = await fetch('https://mybackend-dfd1.onrender.com/signin', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPassword
+      })
+    });
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return response.json();
-  })
-  .then(user => {
+
+    const user = await response.json();
+
     if (user && user.id) {
       this.props.loadUser(user);
       this.props.onRouteChange('home');
     } else {
       throw new Error('User authentication failed');
     }
-  })
-  .catch(error => console.error('Error:', error));
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
   render() {
     const { onRouteChange } = this.props;
