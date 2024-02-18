@@ -28,13 +28,16 @@ class Signin extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user)
-          this.props.onRouteChange('home');
-        }
-      })
+.then(user => {
+  if (user.id) {
+    this.props.loadUser(user);
+    this.props.onRouteChange('home');
   }
+})
+.catch(error => {
+  console.error('Error during sign in:', error);
+  // Afișează un mesaj pentru utilizator despre eșecul autentificării
+});
 
   render() {
     const { onRouteChange } = this.props;
