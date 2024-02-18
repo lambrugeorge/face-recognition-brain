@@ -18,26 +18,23 @@ class Signin extends React.Component {
   };
 
   onSubmitSignIn = () => {
+    const { signInEmail, signInPassword } = this.state;
+
     fetch('https://mybackend-dfd1.onrender.com/signin', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        email: this.state.signInEmail,
-        password: this.state.signInPassword
+        email: signInEmail,
+        password: signInPassword
       })
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
+      .then(response => response.json())
       .then(user => {
         if (user.id) {
           this.props.loadUser(user);
           this.props.onRouteChange('home');
         } else {
-          console.error('Unexpected response from server:', user);
+          console.log('User not found:', user);
           // Afișează un mesaj pentru utilizator despre eșecul autentificării
         }
       })
