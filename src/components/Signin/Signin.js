@@ -1,12 +1,20 @@
 import React from 'react';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
 class Signin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       signInEmail: '',
+<<<<<<< HEAD
       signInPassword: ''
+=======
+      signInPassword: '',
+      error: ''
+>>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
     }
   }
 
@@ -19,7 +27,11 @@ class Signin extends React.Component {
   }
 
   onSubmitSignIn = () => {
+<<<<<<< HEAD
     fetch('http://localhost:3000/signin', {
+=======
+    fetch('https://mybackend-dfd1.onrender.com/signin', {
+>>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -35,7 +47,10 @@ class Signin extends React.Component {
         }
       })
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
   render() {
     const { onRouteChange } = this.props;
     return (
@@ -64,6 +79,12 @@ class Signin extends React.Component {
                   onChange={this.onPasswordChange}
                 />
               </div>
+<<<<<<< HEAD
+=======
+              <div className="error-message">
+                {this.state.error && <p>{this.state.error}</p>}
+              </div>
+>>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
             </fieldset>
             <div className="">
               <input
@@ -83,4 +104,8 @@ class Signin extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 export default Signin;
+=======
+export default Signin;
+>>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb

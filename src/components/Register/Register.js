@@ -23,7 +23,11 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
+<<<<<<< HEAD
     fetch('http://localhost:3000/register', {
+=======
+    fetch('https://mybackend-dfd1.onrender.com/register', {
+>>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -94,4 +98,8 @@ class Register extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 export default Register;
+=======
+export default Register;
+>>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
