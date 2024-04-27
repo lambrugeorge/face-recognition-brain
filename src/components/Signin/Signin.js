@@ -1,111 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
-<<<<<<< HEAD
+const Signin = ({ onRouteChange }) => {
+  const [signInEmail, setSignInEmail] = useState('');
+  const [signInPassword, setSignInPassword] = useState('');
 
-=======
->>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
-class Signin extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      signInEmail: '',
-<<<<<<< HEAD
-      signInPassword: ''
-=======
-      signInPassword: '',
-      error: ''
->>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
-    }
-  }
-
-  onEmailChange = (event) => {
-    this.setState({signInEmail: event.target.value})
-  }
-
-  onPasswordChange = (event) => {
-    this.setState({signInPassword: event.target.value})
-  }
-
-  onSubmitSignIn = () => {
-<<<<<<< HEAD
-    fetch('http://localhost:3000/signin', {
-=======
-    fetch('https://mybackend-dfd1.onrender.com/signin', {
->>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        email: this.state.signInEmail,
-        password: this.state.signInPassword
-      })
+  const onSubmitSignIn = () => {
+    axios.post('http://localhost:3000/signin', {
+      email: signInEmail,
+      password: signInPassword
     })
-      .then(response => response.json())
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user)
-          this.props.onRouteChange('home');
-        }
-      })
+    .then(response => {
+      if (response.data === 'success') {
+        onRouteChange('home');
+      }
+    })
+    .catch(err => console.log(err));
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
-  render() {
-    const { onRouteChange } = this.props;
-    return (
-      <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-        <main className="pa4 black-80">
-          <div className="measure">
-            <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-              <legend className="f1 fw6 ph0 mh0">Sign In</legend>
-              <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-                <input
-                  className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                  type="email"
-                  name="email-address"
-                  id="email-address"
-                  onChange={this.onEmailChange}
-                />
-              </div>
-              <div className="mv3">
-                <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-                <input
-                  className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                  type="password"
-                  name="password"
-                  id="password"
-                  onChange={this.onPasswordChange}
-                />
-              </div>
-<<<<<<< HEAD
-=======
-              <div className="error-message">
-                {this.state.error && <p>{this.state.error}</p>}
-              </div>
->>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
-            </fieldset>
-            <div className="">
+  return (
+    <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+      <main className="pa4 white-80">
+        <div className="measure">
+          <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+            <legend className="f1 fw6 ph0 mh0">Sign In</legend>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
               <input
-                onClick={this.onSubmitSignIn}
-                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                type="submit"
-                value="Sign in"
+                className="pa2 input-reset ba bg-transparent hover-bg-white hover-black w-100"
+                type="email"
+                name="email-address"
+                id="email-address"
+                onChange={e => setSignInEmail(e.target.value)}
               />
             </div>
-            <div className="lh-copy mt3">
-              <p  onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
+            <div className="mv3">
+              <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+              <input
+                className="b pa2 input-reset ba bg-transparent hover-bg-white hover-black w-100"
+                type="password"
+                name="password"
+                id="password"
+                onChange={e => setSignInPassword(e.target.value)}
+              />
             </div>
+          </fieldset>
+          <div className="">
+            <input
+              onClick={onSubmitSignIn}
+              className="b ph3 pv3 input-reset ba b--white-smoke bg-transparent grow pointer f6 dib white"
+              type="submit"
+              value="Sign in"
+            />
           </div>
-        </main>
-      </article>
-    );
-  }
+          <div className="lh-copy mt3">
+            <p  onClick={() => onRouteChange('register')} className="f6 link dim white db pointer">Register</p>
+          </div>
+        </div>
+      </main>
+    </article>
+  );
 }
 
-<<<<<<< HEAD
 export default Signin;
-=======
-export default Signin;
->>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
