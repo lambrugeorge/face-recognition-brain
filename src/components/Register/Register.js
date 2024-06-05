@@ -11,21 +11,21 @@ class Register extends React.Component {
   }
 
   onNameChange = (event) => {
-    this.setState({name: event.target.value})
+    this.setState({ name: event.target.value });
   }
 
   onEmailChange = (event) => {
-    this.setState({email: event.target.value})
+    this.setState({ email: event.target.value });
   }
 
   onPasswordChange = (event) => {
-    this.setState({password: event.target.value})
+    this.setState({ password: event.target.value });
   }
 
   onSubmitSignIn = () => {
-    fetch('https://rainbow-meerkat-35462e.netlify.app/', {
+    fetch('https://rainbow-meerkat-35462e.netlify.app/register', {
       method: 'post',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: this.state.email,
         password: this.state.password,
@@ -34,11 +34,12 @@ class Register extends React.Component {
     })
       .then(response => response.json())
       .then(user => {
-        if (user) {
-          this.props.loadUser(user)
+        if (user.id) {
+          this.props.loadUser(user);
           this.props.onRouteChange('home');
         }
       })
+      .catch(err => console.error(err));
   }
 
   render() {
@@ -83,7 +84,7 @@ class Register extends React.Component {
               <input
                 onClick={this.onSubmitSignIn}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib white"
-                type="submit"
+                type="button" // Change this to type="button" to prevent form submission default behavior
                 value="Register"
               />
             </div>
