@@ -23,7 +23,7 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('https://rainbow-meerkat-35462e.netlify.app/register', {
+    fetch('https://rainbow-meerkat-35462e.netlify.app/', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
