@@ -36,7 +36,3 @@ This project is a web application for face detection using the Clarifai API. The
 
 [Link to the project](https://myfrontend-t50e.onrender.com/)
 
-## Zero to Mastery Academy Course
-
-This project was developed as part of the [Complete Web Developer in 2024: Zero to Mastery](#) course at [Zero to Mastery Academy](#). The course provides comprehensive training for web development, covering various technologies and approaches.
->>>>>>> 37c10f4bc3030a2e391ab50256006e1498c7aaeb
