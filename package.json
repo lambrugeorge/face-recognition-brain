@@ -1,0 +1,48 @@
+{
+  "name": "facerecognitionbrain",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@apideck/better-ajv-errors": "^0.3.6",
+    "@babel/plugin-transform-class-properties": "^7.25.9",
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.26.6",
+    "@babel/plugin-transform-numeric-separator": "^7.25.9",
+    "@babel/plugin-transform-optional-chaining": "^7.25.9",
+    "@babel/plugin-transform-private-methods": "^7.25.9",
+    "@eslint/config-array": "^0.19.1",
+    "@eslint/object-schema": "^2.1.5",
+    "@jridgewell/sourcemap-codec": "^1.5.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@tsparticles/react": "^3.0.0",
+    "axios": "^1.6.8",
+    "clarifai": "^2.9.1",
+    "cors": "^2.8.5",
+    "firebase": "^10.11.0",
+    "particles-bg": "^2.5.5",
+    "proton-engine": "^6.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-parallax-tilt": "^1.7.164",
+    "react-scripts": "^3.0.1",
+    "tachyons": "^4.12.0",
+    "web-vitals": "^3.5.2"
+  },
+  "scripts": {
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
